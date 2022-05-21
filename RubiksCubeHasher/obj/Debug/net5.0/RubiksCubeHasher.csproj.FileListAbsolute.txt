@@ -9,3 +9,10 @@ C:\Users\79120\source\repos\RubiksCubeHasher\RubiksCubeHasher\obj\Debug\net5.0\R
 C:\Users\79120\source\repos\RubiksCubeHasher\RubiksCubeHasher\obj\Debug\net5.0\RubiksCubeHasher.dll
 C:\Users\79120\source\repos\RubiksCubeHasher\RubiksCubeHasher\obj\Debug\net5.0\ref\RubiksCubeHasher.dll
 C:\Users\79120\source\repos\RubiksCubeHasher\RubiksCubeHasher\obj\Debug\net5.0\RubiksCubeHasher.pdb
+C:\Users\79120\source\repos\RubiksCubeHasher\RubiksCubeHasher\bin\Debug\net5.0\NUnit3.TestAdapter.dll
+C:\Users\79120\source\repos\RubiksCubeHasher\RubiksCubeHasher\bin\Debug\net5.0\NUnit3.TestAdapter.pdb
+C:\Users\79120\source\repos\RubiksCubeHasher\RubiksCubeHasher\bin\Debug\net5.0\nunit.engine.dll
+C:\Users\79120\source\repos\RubiksCubeHasher\RubiksCubeHasher\bin\Debug\net5.0\nunit.engine.api.dll
+C:\Users\79120\source\repos\RubiksCubeHasher\RubiksCubeHasher\bin\Debug\net5.0\nunit.engine.core.dll
+C:\Users\79120\source\repos\RubiksCubeHasher\RubiksCubeHasher\bin\Debug\net5.0\testcentric.engine.metadata.dll
+C:\Users\79120\source\repos\RubiksCubeHasher\RubiksCubeHasher\obj\Debug\net5.0\RubiksCubeHasher.csproj.AssemblyReference.cache

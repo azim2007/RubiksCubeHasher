@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "9SMmELbXSTWeL6mCt3+n2n1ZoSka1EcF9GXTCydIPi0NVAu3rWQY1ZlkT5l8Y8YtbIY8KEzeJ5WoGt8lT4LDGw==",
+  "dgSpecHash": "pFXnn6ffXEqnnglQ4I1MvdnmhiKb5qLLpU/SIUodroSJUle1bJXMCXcVSeYcGnu5nW84AZOOd0FZU4+x9kabcA==",
   "success": true,
   "projectFilePath": "C:\\Users\\79120\\source\\repos\\RubiksCubeHasher\\RubiksCubeHasher\\RubiksCubeHasher.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\79120\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\79120\\.nuget\\packages\\netstandard.library\\2.0.0\\netstandard.library.2.0.0.nupkg.sha512",
+    "C:\\Users\\79120\\.nuget\\packages\\nunit\\3.13.3\\nunit.3.13.3.nupkg.sha512",
+    "C:\\Users\\79120\\.nuget\\packages\\nunit3testadapter\\4.2.1\\nunit3testadapter.4.2.1.nupkg.sha512"
+  ],
   "logs": []
 }

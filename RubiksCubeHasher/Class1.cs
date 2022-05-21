@@ -11,9 +11,11 @@ namespace RubiksCubeHasher
         orange,
         red
     }
+
     public class Side
     {
         public Side() { }
+
         /// <summary>
         /// конструктор для создания одноцветной стороны
         /// </summary>
@@ -29,6 +31,7 @@ namespace RubiksCubeHasher
             this.downLeftAngle = color;
             this.leftEdge = color;
         }
+
         /// <summary>
         /// элементы в массиве должны идти от верхнего левого угла до левого ребра по часовой стрелке
         /// </summary>
@@ -39,6 +42,7 @@ namespace RubiksCubeHasher
             {
                 throw new InvalidOperationException("количество аргументов, передаваемых в конструктор должно быть равно 8, а у вас " + colors.Length);
             }
+
             this.upLeftAngle = colors[0];
             this.upEdge = colors[1];
             this.upRightAngle = colors[2];
@@ -48,6 +52,7 @@ namespace RubiksCubeHasher
             this.downLeftAngle = colors[6];
             this.leftEdge = colors[7];
         }
+
         public Color upEdge;
         public Color rightEdge;
         public Color downEdge;
@@ -69,6 +74,7 @@ namespace RubiksCubeHasher
             downRightAngle = upRightAngle;
             upRightAngle = swap;
         }
+
         public void ContrClockwiseTurn()
         {
             Color swap = upEdge;
@@ -82,6 +88,7 @@ namespace RubiksCubeHasher
             downRightAngle = downLeftAngle;
             downLeftAngle = swap;
         }
+
         public void DoubleTurn()
         {
             Color swap = upEdge;
@@ -112,6 +119,7 @@ namespace RubiksCubeHasher
             orangeSide = new Side(Color.orange);
             redSide = new Side(Color.red);
         }
+
         /// <summary>
         /// конструктор для создания куба с заданными сторонами, стороны задаются в следующем порядке: белая, желтая, зеленая, синяя, оранжевая, красная
         /// </summary>
@@ -141,7 +149,6 @@ namespace RubiksCubeHasher
         public Side blueSide;
         public Side orangeSide;
         public Side redSide;
-        
         public string R()
         {
             orangeSide.ClockwiseTurn();
@@ -162,6 +169,7 @@ namespace RubiksCubeHasher
             yellowSide.downRightAngle = swap;
             return "R ";
         }
+
         public string RContr()
         {
             orangeSide.ContrClockwiseTurn();
@@ -182,6 +190,7 @@ namespace RubiksCubeHasher
             whiteSide.downRightAngle = swap;
             return "R'";
         }
+
         public string RDouble()
         {
             orangeSide.DoubleTurn();
@@ -205,6 +214,7 @@ namespace RubiksCubeHasher
             yellowSide.downRightAngle = swap;
             return "R2";
         }
+
         public string L()
         {
             redSide.ClockwiseTurn();
@@ -225,6 +235,7 @@ namespace RubiksCubeHasher
             whiteSide.downLeftAngle = swap;
             return "L ";
         }
+
         public string LContr()
         {
             redSide.ContrClockwiseTurn();
@@ -245,6 +256,7 @@ namespace RubiksCubeHasher
             yellowSide.downLeftAngle = swap;
             return "L'";
         }
+
         public string LDouble()
         {
             redSide.DoubleTurn();
@@ -268,6 +280,7 @@ namespace RubiksCubeHasher
             yellowSide.downLeftAngle = swap;
             return "L2";
         }
+
         public string U()
         {
             UContr();
@@ -275,6 +288,7 @@ namespace RubiksCubeHasher
             UContr();
             return "U ";
         }
+
         public string UContr()
         {
             yellowSide.ContrClockwiseTurn();
@@ -295,6 +309,7 @@ namespace RubiksCubeHasher
             orangeSide.upEdge = swap;
             return "U'";
         }
+
         public string UDouble()
         {
             yellowSide.DoubleTurn();
@@ -318,6 +333,7 @@ namespace RubiksCubeHasher
             redSide.upEdge = swap;
             return "U2";
         }
+
         public string D()
         {
             whiteSide.ClockwiseTurn();
@@ -338,6 +354,7 @@ namespace RubiksCubeHasher
             orangeSide.downEdge = swap;
             return "D ";
         }
+
         public string DContr()
         {
             whiteSide.ContrClockwiseTurn();
@@ -358,6 +375,7 @@ namespace RubiksCubeHasher
             redSide.downEdge = swap;
             return "D'";
         }
+
         public string DDouble()
         {
             whiteSide.DoubleTurn();
@@ -381,6 +399,7 @@ namespace RubiksCubeHasher
             redSide.downEdge = swap;
             return "D2";
         }
+
         public string F()
         {
             greenSide.ClockwiseTurn();
@@ -401,6 +420,7 @@ namespace RubiksCubeHasher
             orangeSide.leftEdge = swap;
             return "F ";
         }
+
         public string FContr()
         {
             greenSide.ContrClockwiseTurn();
@@ -421,6 +441,7 @@ namespace RubiksCubeHasher
             redSide.rightEdge = swap;
             return "F'";
         }
+
         public string FDouble()
         {
 
@@ -428,6 +449,7 @@ namespace RubiksCubeHasher
             F();
             return "F2";
         }
+
         public string B()
         {
             blueSide.ClockwiseTurn();
@@ -448,6 +470,7 @@ namespace RubiksCubeHasher
             redSide.leftEdge = swap;
             return "B ";
         }
+
         public string BContr()
         {
             blueSide.ContrClockwiseTurn();
@@ -468,6 +491,7 @@ namespace RubiksCubeHasher
             orangeSide.rightEdge = swap;
             return "B'";
         }
+
         public string BDouble()
         {
             blueSide.DoubleTurn();
@@ -491,6 +515,7 @@ namespace RubiksCubeHasher
             redSide.leftEdge = swap;
             return "B2";
         }
+
         public override string ToString()
         {
             string sCube = "";
@@ -500,8 +525,8 @@ namespace RubiksCubeHasher
                 sCube += indexes[(int)side.upLeftAngle] + indexes[(int)side.upEdge] + indexes[(int)side.upRightAngle] + indexes[(int)side.rightEdge] + indexes[(int)side.downRightAngle] + indexes[(int)side.downEdge] + indexes[(int)side.downLeftAngle] + indexes[(int)side.leftEdge];
             }
 
-            FillStrBySide(whiteSide);
             FillStrBySide(yellowSide);
+            FillStrBySide(whiteSide);
             FillStrBySide(greenSide);
             FillStrBySide(blueSide);
             FillStrBySide(orangeSide);
@@ -509,5 +534,6 @@ namespace RubiksCubeHasher
             return sCube;
         }
     }
+
 
 }
