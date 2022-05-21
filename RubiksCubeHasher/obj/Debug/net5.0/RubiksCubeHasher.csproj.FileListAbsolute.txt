@@ -1,0 +1,11 @@
+C:\Users\79120\source\repos\RubiksCubeHasher\RubiksCubeHasher\bin\Debug\net5.0\RubiksCubeHasher.deps.json
+C:\Users\79120\source\repos\RubiksCubeHasher\RubiksCubeHasher\bin\Debug\net5.0\RubiksCubeHasher.dll
+C:\Users\79120\source\repos\RubiksCubeHasher\RubiksCubeHasher\bin\Debug\net5.0\ref\RubiksCubeHasher.dll
+C:\Users\79120\source\repos\RubiksCubeHasher\RubiksCubeHasher\bin\Debug\net5.0\RubiksCubeHasher.pdb
+C:\Users\79120\source\repos\RubiksCubeHasher\RubiksCubeHasher\obj\Debug\net5.0\RubiksCubeHasher.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\79120\source\repos\RubiksCubeHasher\RubiksCubeHasher\obj\Debug\net5.0\RubiksCubeHasher.AssemblyInfoInputs.cache
+C:\Users\79120\source\repos\RubiksCubeHasher\RubiksCubeHasher\obj\Debug\net5.0\RubiksCubeHasher.AssemblyInfo.cs
+C:\Users\79120\source\repos\RubiksCubeHasher\RubiksCubeHasher\obj\Debug\net5.0\RubiksCubeHasher.csproj.CoreCompileInputs.cache
+C:\Users\79120\source\repos\RubiksCubeHasher\RubiksCubeHasher\obj\Debug\net5.0\RubiksCubeHasher.dll
+C:\Users\79120\source\repos\RubiksCubeHasher\RubiksCubeHasher\obj\Debug\net5.0\ref\RubiksCubeHasher.dll
+C:\Users\79120\source\repos\RubiksCubeHasher\RubiksCubeHasher\obj\Debug\net5.0\RubiksCubeHasher.pdb
