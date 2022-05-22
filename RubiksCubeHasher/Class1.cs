@@ -14,6 +14,14 @@ namespace RubiksCubeHasher
 
     public class Side
     {
+        public Color UpEdge { get; set; }
+        public Color RightEdge { get; set; }
+        public Color DownEdge { get; set; }
+        public Color LeftEdge { get; set; }
+        public Color UpRightAngle { get; set; }
+        public Color UpLeftAngle { get; set; }
+        public Color DownLeftAngle { get; set; }
+        public Color DownRightAngle { get; set; }
         public Side() { }
 
         /// <summary>
@@ -22,14 +30,14 @@ namespace RubiksCubeHasher
         /// <param name="color">цвет, который присваивается всем элементам стороны</param>
         public Side(Color color)
         {
-            this.upLeftAngle = color;
-            this.upEdge = color;
-            this.upRightAngle = color;
-            this.rightEdge = color;
-            this.downRightAngle = color;
-            this.downEdge = color;
-            this.downLeftAngle = color;
-            this.leftEdge = color;
+            this.UpLeftAngle = color;
+            this.UpEdge = color;
+            this.UpRightAngle = color;
+            this.RightEdge = color;
+            this.DownRightAngle = color;
+            this.DownEdge = color;
+            this.DownLeftAngle = color;
+            this.LeftEdge = color;
         }
 
         /// <summary>
@@ -43,66 +51,65 @@ namespace RubiksCubeHasher
                 throw new InvalidOperationException("количество аргументов, передаваемых в конструктор должно быть равно 8, а у вас " + colors.Length);
             }
 
-            this.upLeftAngle = colors[0];
-            this.upEdge = colors[1];
-            this.upRightAngle = colors[2];
-            this.rightEdge = colors[3];
-            this.downRightAngle = colors[4];
-            this.downEdge = colors[5];
-            this.downLeftAngle = colors[6];
-            this.leftEdge = colors[7];
+            this.UpLeftAngle = colors[0];
+            this.UpEdge = colors[1];
+            this.UpRightAngle = colors[2];
+            this.RightEdge = colors[3];
+            this.DownRightAngle = colors[4];
+            this.DownEdge = colors[5];
+            this.DownLeftAngle = colors[6];
+            this.LeftEdge = colors[7];
         }
 
-        public Color upEdge;
-        public Color rightEdge;
-        public Color downEdge;
-        public Color leftEdge;
-        public Color upRightAngle;
-        public Color upLeftAngle;
-        public Color downLeftAngle;
-        public Color downRightAngle;
+        
         public void ClockwiseTurn()
         {
-            Color swap = upEdge;
-            upEdge = leftEdge;
-            leftEdge = downEdge;
-            downEdge = rightEdge;
-            rightEdge = swap;
-            swap = upLeftAngle;
-            upLeftAngle = downLeftAngle;
-            downLeftAngle = downRightAngle;
-            downRightAngle = upRightAngle;
-            upRightAngle = swap;
+            Color swap = UpEdge;
+            UpEdge = LeftEdge;
+            LeftEdge = DownEdge;
+            DownEdge = RightEdge;
+            RightEdge = swap;
+            swap = UpLeftAngle;
+            UpLeftAngle = DownLeftAngle;
+            DownLeftAngle = DownRightAngle;
+            DownRightAngle = UpRightAngle;
+            UpRightAngle = swap;
         }
 
         public void ContrClockwiseTurn()
         {
-            Color swap = upEdge;
-            upEdge = rightEdge;
-            rightEdge = downEdge;
-            downEdge = leftEdge;
-            leftEdge = swap;
-            swap = upLeftAngle;
-            upLeftAngle = upRightAngle;
-            upRightAngle = downRightAngle;
-            downRightAngle = downLeftAngle;
-            downLeftAngle = swap;
+            Color swap = UpEdge;
+            UpEdge = RightEdge;
+            RightEdge = DownEdge;
+            DownEdge = LeftEdge;
+            LeftEdge = swap;
+            swap = UpLeftAngle;
+            UpLeftAngle = UpRightAngle;
+            UpRightAngle = DownRightAngle;
+            DownRightAngle = DownLeftAngle;
+            DownLeftAngle = swap;
         }
 
         public void DoubleTurn()
         {
-            Color swap = upEdge;
-            upEdge = downEdge;
-            downEdge = swap;
-            swap = rightEdge;
-            rightEdge = leftEdge;
-            leftEdge = swap;
-            swap = upLeftAngle;
-            upLeftAngle = downRightAngle;
-            downRightAngle = swap;
-            swap = upRightAngle;
-            upRightAngle = downLeftAngle;
-            downLeftAngle = swap;
+            Color swap = UpEdge;
+            UpEdge = DownEdge;
+            DownEdge = swap;
+            swap = RightEdge;
+            RightEdge = LeftEdge;
+            LeftEdge = swap;
+            swap = UpLeftAngle;
+            UpLeftAngle = DownRightAngle;
+            DownRightAngle = swap;
+            swap = UpRightAngle;
+            UpRightAngle = DownLeftAngle;
+            DownLeftAngle = swap;
+        }
+
+        public override string ToString()
+        {
+            string[] indexes = new string[] { "w", "y", "g", "b", "o", "r" };
+            return indexes[(int)UpLeftAngle] + indexes[(int)UpEdge] + indexes[(int)UpRightAngle] + indexes[(int)RightEdge] + indexes[(int)DownRightAngle] + indexes[(int)DownEdge] + indexes[(int)DownLeftAngle] + indexes[(int)LeftEdge];
         }
     }
     public class Cube
@@ -133,7 +140,7 @@ namespace RubiksCubeHasher
 
             void FillSide(int index, ref Side side)
             {
-                side = new Side(new Color[] { sides[index].upLeftAngle, sides[index].upEdge, sides[index].upRightAngle, sides[index].rightEdge, sides[index].downRightAngle, sides[index].downEdge, sides[index].downLeftAngle, sides[index].leftEdge });
+                side = new Side(new Color[] { sides[index].UpLeftAngle, sides[index].UpEdge, sides[index].UpRightAngle, sides[index].RightEdge, sides[index].DownRightAngle, sides[index].DownEdge, sides[index].DownLeftAngle, sides[index].LeftEdge });
             }
 
             FillSide(0, ref whiteSide);
@@ -143,141 +150,141 @@ namespace RubiksCubeHasher
             FillSide(4, ref orangeSide);
             FillSide(5, ref redSide);
         }
-        public Side whiteSide;
-        public Side yellowSide;
-        public Side greenSide;
-        public Side blueSide;
-        public Side orangeSide;
-        public Side redSide;
+        private Side whiteSide;
+        private Side yellowSide;
+        private Side greenSide;
+        private Side blueSide;
+        private Side orangeSide;
+        private Side redSide;
         public string R()
         {
             orangeSide.ClockwiseTurn();
-            Color swap = greenSide.upRightAngle;
-            greenSide.upRightAngle = whiteSide.upRightAngle;
-            whiteSide.upRightAngle = blueSide.upRightAngle;
-            blueSide.upRightAngle = yellowSide.upRightAngle;
-            yellowSide.upRightAngle = swap;
-            swap = greenSide.rightEdge;
-            greenSide.rightEdge = whiteSide.rightEdge;
-            whiteSide.rightEdge = blueSide.rightEdge;
-            blueSide.rightEdge = yellowSide.rightEdge;
-            yellowSide.rightEdge = swap;
-            swap = greenSide.downRightAngle;
-            greenSide.downRightAngle = whiteSide.downRightAngle;
-            whiteSide.downRightAngle = blueSide.downRightAngle;
-            blueSide.downRightAngle = yellowSide.downRightAngle;
-            yellowSide.downRightAngle = swap;
+            Color swap = greenSide.UpRightAngle;
+            greenSide.UpRightAngle = whiteSide.UpRightAngle;
+            whiteSide.UpRightAngle = blueSide.UpRightAngle;
+            blueSide.UpRightAngle = yellowSide.UpRightAngle;
+            yellowSide.UpRightAngle = swap;
+            swap = greenSide.RightEdge;
+            greenSide.RightEdge = whiteSide.RightEdge;
+            whiteSide.RightEdge = blueSide.RightEdge;
+            blueSide.RightEdge = yellowSide.RightEdge;
+            yellowSide.RightEdge = swap;
+            swap = greenSide.DownRightAngle;
+            greenSide.DownRightAngle = whiteSide.DownRightAngle;
+            whiteSide.DownRightAngle = blueSide.DownRightAngle;
+            blueSide.DownRightAngle = yellowSide.DownRightAngle;
+            yellowSide.DownRightAngle = swap;
             return "R ";
         }
 
         public string RContr()
         {
             orangeSide.ContrClockwiseTurn();
-            Color swap = greenSide.upRightAngle;
-            greenSide.upRightAngle = yellowSide.upRightAngle;
-            yellowSide.upRightAngle = blueSide.upRightAngle;
-            blueSide.upRightAngle = whiteSide.upRightAngle;
-            whiteSide.upRightAngle = swap;
-            swap = greenSide.rightEdge;
-            greenSide.rightEdge = yellowSide.rightEdge;
-            yellowSide.rightEdge = blueSide.rightEdge;
-            blueSide.rightEdge = whiteSide.rightEdge;
-            whiteSide.rightEdge = swap;
-            swap = greenSide.downRightAngle;
-            greenSide.downRightAngle = yellowSide.downRightAngle;
-            yellowSide.downRightAngle = blueSide.downRightAngle;
-            blueSide.downRightAngle = whiteSide.downRightAngle;
-            whiteSide.downRightAngle = swap;
+            Color swap = greenSide.UpRightAngle;
+            greenSide.UpRightAngle = yellowSide.UpRightAngle;
+            yellowSide.UpRightAngle = blueSide.UpRightAngle;
+            blueSide.UpRightAngle = whiteSide.UpRightAngle;
+            whiteSide.UpRightAngle = swap;
+            swap = greenSide.RightEdge;
+            greenSide.RightEdge = yellowSide.RightEdge;
+            yellowSide.RightEdge = blueSide.RightEdge;
+            blueSide.RightEdge = whiteSide.RightEdge;
+            whiteSide.RightEdge = swap;
+            swap = greenSide.DownRightAngle;
+            greenSide.DownRightAngle = yellowSide.DownRightAngle;
+            yellowSide.DownRightAngle = blueSide.DownRightAngle;
+            blueSide.DownRightAngle = whiteSide.DownRightAngle;
+            whiteSide.DownRightAngle = swap;
             return "R'";
         }
 
         public string RDouble()
         {
             orangeSide.DoubleTurn();
-            Color swap = greenSide.upRightAngle;
-            greenSide.upRightAngle = blueSide.upRightAngle;
-            blueSide.upRightAngle = swap;
-            swap = whiteSide.upRightAngle;
-            whiteSide.upRightAngle = yellowSide.upRightAngle;
-            yellowSide.upRightAngle = swap;
-            swap = greenSide.rightEdge;
-            greenSide.rightEdge = blueSide.rightEdge;
-            blueSide.rightEdge = swap;
-            swap = whiteSide.rightEdge;
-            whiteSide.rightEdge = yellowSide.rightEdge;
-            yellowSide.rightEdge = swap;
-            swap = greenSide.downRightAngle;
-            greenSide.downRightAngle = blueSide.downRightAngle;
-            blueSide.downRightAngle = swap;
-            swap = whiteSide.downRightAngle;
-            whiteSide.downRightAngle = yellowSide.downRightAngle;
-            yellowSide.downRightAngle = swap;
+            Color swap = greenSide.UpRightAngle;
+            greenSide.UpRightAngle = blueSide.UpRightAngle;
+            blueSide.UpRightAngle = swap;
+            swap = whiteSide.UpRightAngle;
+            whiteSide.UpRightAngle = yellowSide.UpRightAngle;
+            yellowSide.UpRightAngle = swap;
+            swap = greenSide.RightEdge;
+            greenSide.RightEdge = blueSide.RightEdge;
+            blueSide.RightEdge = swap;
+            swap = whiteSide.RightEdge;
+            whiteSide.RightEdge = yellowSide.RightEdge;
+            yellowSide.RightEdge = swap;
+            swap = greenSide.DownRightAngle;
+            greenSide.DownRightAngle = blueSide.DownRightAngle;
+            blueSide.DownRightAngle = swap;
+            swap = whiteSide.DownRightAngle;
+            whiteSide.DownRightAngle = yellowSide.DownRightAngle;
+            yellowSide.DownRightAngle = swap;
             return "R2";
         }
 
         public string L()
         {
             redSide.ClockwiseTurn();
-            Color swap = greenSide.upLeftAngle;
-            greenSide.upLeftAngle = yellowSide.upLeftAngle;
-            yellowSide.upLeftAngle = blueSide.upLeftAngle;
-            blueSide.upLeftAngle = whiteSide.upLeftAngle;
-            whiteSide.upLeftAngle = swap;
-            swap = greenSide.leftEdge;
-            greenSide.leftEdge = yellowSide.leftEdge;
-            yellowSide.leftEdge = blueSide.leftEdge;
-            blueSide.leftEdge = whiteSide.leftEdge;
-            whiteSide.leftEdge = swap;
-            swap = greenSide.downLeftAngle;
-            greenSide.downLeftAngle = yellowSide.downLeftAngle;
-            yellowSide.downLeftAngle = blueSide.downLeftAngle;
-            blueSide.downLeftAngle = whiteSide.downLeftAngle;
-            whiteSide.downLeftAngle = swap;
+            Color swap = greenSide.UpLeftAngle;
+            greenSide.UpLeftAngle = yellowSide.UpLeftAngle;
+            yellowSide.UpLeftAngle = blueSide.UpLeftAngle;
+            blueSide.UpLeftAngle = whiteSide.UpLeftAngle;
+            whiteSide.UpLeftAngle = swap;
+            swap = greenSide.LeftEdge;
+            greenSide.LeftEdge = yellowSide.LeftEdge;
+            yellowSide.LeftEdge = blueSide.LeftEdge;
+            blueSide.LeftEdge = whiteSide.LeftEdge;
+            whiteSide.LeftEdge = swap;
+            swap = greenSide.DownLeftAngle;
+            greenSide.DownLeftAngle = yellowSide.DownLeftAngle;
+            yellowSide.DownLeftAngle = blueSide.DownLeftAngle;
+            blueSide.DownLeftAngle = whiteSide.DownLeftAngle;
+            whiteSide.DownLeftAngle = swap;
             return "L ";
         }
 
         public string LContr()
         {
             redSide.ContrClockwiseTurn();
-            Color swap = greenSide.upLeftAngle;
-            greenSide.upLeftAngle = whiteSide.upLeftAngle;
-            whiteSide.upLeftAngle = blueSide.upLeftAngle;
-            blueSide.upLeftAngle = yellowSide.upLeftAngle;
-            yellowSide.upLeftAngle = swap;
-            swap = greenSide.leftEdge;
-            greenSide.leftEdge = whiteSide.leftEdge;
-            whiteSide.leftEdge = blueSide.leftEdge;
-            blueSide.leftEdge = yellowSide.leftEdge;
-            yellowSide.leftEdge = swap;
-            swap = greenSide.downLeftAngle;
-            greenSide.downLeftAngle = whiteSide.downLeftAngle;
-            whiteSide.downLeftAngle = blueSide.downLeftAngle;
-            blueSide.downLeftAngle = yellowSide.downLeftAngle;
-            yellowSide.downLeftAngle = swap;
+            Color swap = greenSide.UpLeftAngle;
+            greenSide.UpLeftAngle = whiteSide.UpLeftAngle;
+            whiteSide.UpLeftAngle = blueSide.UpLeftAngle;
+            blueSide.UpLeftAngle = yellowSide.UpLeftAngle;
+            yellowSide.UpLeftAngle = swap;
+            swap = greenSide.LeftEdge;
+            greenSide.LeftEdge = whiteSide.LeftEdge;
+            whiteSide.LeftEdge = blueSide.LeftEdge;
+            blueSide.LeftEdge = yellowSide.LeftEdge;
+            yellowSide.LeftEdge = swap;
+            swap = greenSide.DownLeftAngle;
+            greenSide.DownLeftAngle = whiteSide.DownLeftAngle;
+            whiteSide.DownLeftAngle = blueSide.DownLeftAngle;
+            blueSide.DownLeftAngle = yellowSide.DownLeftAngle;
+            yellowSide.DownLeftAngle = swap;
             return "L'";
         }
 
         public string LDouble()
         {
             redSide.DoubleTurn();
-            Color swap = greenSide.upLeftAngle;
-            greenSide.upLeftAngle = blueSide.upLeftAngle;
-            blueSide.upLeftAngle = swap;
-            swap = whiteSide.upLeftAngle;
-            whiteSide.upLeftAngle = yellowSide.upLeftAngle;
-            yellowSide.upLeftAngle = swap;
-            swap = greenSide.leftEdge;
-            greenSide.leftEdge = blueSide.leftEdge;
-            blueSide.leftEdge = swap;
-            swap = whiteSide.leftEdge;
-            whiteSide.leftEdge = yellowSide.leftEdge;
-            yellowSide.leftEdge = swap;
-            swap = greenSide.downLeftAngle;
-            greenSide.downLeftAngle = blueSide.downLeftAngle;
-            blueSide.downLeftAngle = swap;
-            swap = whiteSide.downLeftAngle;
-            whiteSide.downLeftAngle = yellowSide.downLeftAngle;
-            yellowSide.downLeftAngle = swap;
+            Color swap = greenSide.UpLeftAngle;
+            greenSide.UpLeftAngle = blueSide.UpLeftAngle;
+            blueSide.UpLeftAngle = swap;
+            swap = whiteSide.UpLeftAngle;
+            whiteSide.UpLeftAngle = yellowSide.UpLeftAngle;
+            yellowSide.UpLeftAngle = swap;
+            swap = greenSide.LeftEdge;
+            greenSide.LeftEdge = blueSide.LeftEdge;
+            blueSide.LeftEdge = swap;
+            swap = whiteSide.LeftEdge;
+            whiteSide.LeftEdge = yellowSide.LeftEdge;
+            yellowSide.LeftEdge = swap;
+            swap = greenSide.DownLeftAngle;
+            greenSide.DownLeftAngle = blueSide.DownLeftAngle;
+            blueSide.DownLeftAngle = swap;
+            swap = whiteSide.DownLeftAngle;
+            whiteSide.DownLeftAngle = yellowSide.DownLeftAngle;
+            yellowSide.DownLeftAngle = swap;
             return "L2";
         }
 
@@ -292,153 +299,153 @@ namespace RubiksCubeHasher
         public string UContr()
         {
             yellowSide.ContrClockwiseTurn();
-            Color swap = greenSide.upRightAngle;
-            greenSide.upRightAngle = redSide.upRightAngle;
-            redSide.upRightAngle = blueSide.downLeftAngle;
-            blueSide.downLeftAngle = orangeSide.upRightAngle;
-            orangeSide.upRightAngle = swap;
-            swap = greenSide.upLeftAngle;
-            greenSide.upLeftAngle = redSide.upLeftAngle;
-            redSide.upLeftAngle = blueSide.downRightAngle;
-            blueSide.downRightAngle = orangeSide.upLeftAngle;
-            orangeSide.upLeftAngle = swap;
-            swap = greenSide.upEdge;
-            greenSide.upEdge = redSide.upEdge;
-            redSide.upEdge = blueSide.downEdge;
-            blueSide.downEdge = orangeSide.upEdge;
-            orangeSide.upEdge = swap;
+            Color swap = greenSide.UpRightAngle;
+            greenSide.UpRightAngle = redSide.UpRightAngle;
+            redSide.UpRightAngle = blueSide.DownLeftAngle;
+            blueSide.DownLeftAngle = orangeSide.UpRightAngle;
+            orangeSide.UpRightAngle = swap;
+            swap = greenSide.UpLeftAngle;
+            greenSide.UpLeftAngle = redSide.UpLeftAngle;
+            redSide.UpLeftAngle = blueSide.DownRightAngle;
+            blueSide.DownRightAngle = orangeSide.UpLeftAngle;
+            orangeSide.UpLeftAngle = swap;
+            swap = greenSide.UpEdge;
+            greenSide.UpEdge = redSide.UpEdge;
+            redSide.UpEdge = blueSide.DownEdge;
+            blueSide.DownEdge = orangeSide.UpEdge;
+            orangeSide.UpEdge = swap;
             return "U'";
         }
 
         public string UDouble()
         {
             yellowSide.DoubleTurn();
-            Color swap = greenSide.upRightAngle;
-            greenSide.upRightAngle = blueSide.downLeftAngle;
-            blueSide.downLeftAngle = swap;
-            swap = orangeSide.upRightAngle;
-            orangeSide.upRightAngle = redSide.upRightAngle;
-            redSide.upRightAngle = swap;
-            swap = greenSide.upLeftAngle;
-            greenSide.upLeftAngle = blueSide.downRightAngle;
-            blueSide.downRightAngle = swap;
-            swap = orangeSide.upLeftAngle;
-            orangeSide.upLeftAngle = redSide.upLeftAngle;
-            redSide.upLeftAngle = swap;
-            swap = greenSide.upEdge;
-            greenSide.upEdge = blueSide.downEdge;
-            blueSide.downEdge = swap;
-            swap = orangeSide.upEdge;
-            orangeSide.upEdge = redSide.upEdge;
-            redSide.upEdge = swap;
+            Color swap = greenSide.UpRightAngle;
+            greenSide.UpRightAngle = blueSide.DownLeftAngle;
+            blueSide.DownLeftAngle = swap;
+            swap = orangeSide.UpRightAngle;
+            orangeSide.UpRightAngle = redSide.UpRightAngle;
+            redSide.UpRightAngle = swap;
+            swap = greenSide.UpLeftAngle;
+            greenSide.UpLeftAngle = blueSide.DownRightAngle;
+            blueSide.DownRightAngle = swap;
+            swap = orangeSide.UpLeftAngle;
+            orangeSide.UpLeftAngle = redSide.UpLeftAngle;
+            redSide.UpLeftAngle = swap;
+            swap = greenSide.UpEdge;
+            greenSide.UpEdge = blueSide.DownEdge;
+            blueSide.DownEdge = swap;
+            swap = orangeSide.UpEdge;
+            orangeSide.UpEdge = redSide.UpEdge;
+            redSide.UpEdge = swap;
             return "U2";
         }
 
         public string D()
         {
             whiteSide.ClockwiseTurn();
-            Color swap = greenSide.downRightAngle;
-            greenSide.downRightAngle = redSide.downRightAngle;
-            redSide.downRightAngle = blueSide.upLeftAngle;
-            blueSide.upLeftAngle = orangeSide.downRightAngle;
-            orangeSide.downRightAngle = swap;
-            swap = greenSide.downLeftAngle;
-            greenSide.downLeftAngle = redSide.downLeftAngle;
-            redSide.downLeftAngle = blueSide.upRightAngle;
-            blueSide.upRightAngle = orangeSide.downLeftAngle;
-            orangeSide.downLeftAngle = swap;
-            swap = greenSide.downEdge;
-            greenSide.downEdge = redSide.downEdge;
-            redSide.downEdge = blueSide.upEdge;
-            blueSide.upEdge = orangeSide.downEdge;
-            orangeSide.downEdge = swap;
+            Color swap = greenSide.DownRightAngle;
+            greenSide.DownRightAngle = redSide.DownRightAngle;
+            redSide.DownRightAngle = blueSide.UpLeftAngle;
+            blueSide.UpLeftAngle = orangeSide.DownRightAngle;
+            orangeSide.DownRightAngle = swap;
+            swap = greenSide.DownLeftAngle;
+            greenSide.DownLeftAngle = redSide.DownLeftAngle;
+            redSide.DownLeftAngle = blueSide.UpRightAngle;
+            blueSide.UpRightAngle = orangeSide.DownLeftAngle;
+            orangeSide.DownLeftAngle = swap;
+            swap = greenSide.DownEdge;
+            greenSide.DownEdge = redSide.DownEdge;
+            redSide.DownEdge = blueSide.UpEdge;
+            blueSide.UpEdge = orangeSide.DownEdge;
+            orangeSide.DownEdge = swap;
             return "D ";
         }
 
         public string DContr()
         {
             whiteSide.ContrClockwiseTurn();
-            Color swap = greenSide.downRightAngle;
-            greenSide.downRightAngle = orangeSide.downRightAngle;
-            orangeSide.downRightAngle = blueSide.upLeftAngle;
-            blueSide.upLeftAngle = redSide.downRightAngle;
-            redSide.downRightAngle = swap;
-            swap = greenSide.downLeftAngle;
-            greenSide.downLeftAngle = orangeSide.downLeftAngle;
-            orangeSide.downLeftAngle = blueSide.upRightAngle;
-            blueSide.upRightAngle = redSide.downLeftAngle;
-            redSide.downLeftAngle = swap;
-            swap = greenSide.downEdge;
-            greenSide.downEdge = orangeSide.downEdge;
-            orangeSide.downEdge = blueSide.upEdge;
-            blueSide.upEdge = redSide.downEdge;
-            redSide.downEdge = swap;
+            Color swap = greenSide.DownRightAngle;
+            greenSide.DownRightAngle = orangeSide.DownRightAngle;
+            orangeSide.DownRightAngle = blueSide.UpLeftAngle;
+            blueSide.UpLeftAngle = redSide.DownRightAngle;
+            redSide.DownRightAngle = swap;
+            swap = greenSide.DownLeftAngle;
+            greenSide.DownLeftAngle = orangeSide.DownLeftAngle;
+            orangeSide.DownLeftAngle = blueSide.UpRightAngle;
+            blueSide.UpRightAngle = redSide.DownLeftAngle;
+            redSide.DownLeftAngle = swap;
+            swap = greenSide.DownEdge;
+            greenSide.DownEdge = orangeSide.DownEdge;
+            orangeSide.DownEdge = blueSide.UpEdge;
+            blueSide.UpEdge = redSide.DownEdge;
+            redSide.DownEdge = swap;
             return "D'";
         }
 
         public string DDouble()
         {
             whiteSide.DoubleTurn();
-            Color swap = greenSide.downRightAngle;
-            greenSide.downRightAngle = blueSide.upLeftAngle;
-            blueSide.upLeftAngle = swap;
-            swap = orangeSide.downRightAngle;
-            orangeSide.downRightAngle = redSide.downRightAngle;
-            redSide.downRightAngle = swap;
-            swap = greenSide.downLeftAngle;
-            greenSide.downLeftAngle = blueSide.upRightAngle;
-            blueSide.upRightAngle = swap;
-            swap = orangeSide.downLeftAngle;
-            orangeSide.downLeftAngle = redSide.downLeftAngle;
-            redSide.downLeftAngle = swap;
-            swap = greenSide.downEdge;
-            greenSide.downEdge = blueSide.upEdge;
-            blueSide.upEdge = swap;
-            swap = orangeSide.downEdge;
-            orangeSide.downEdge = redSide.downEdge;
-            redSide.downEdge = swap;
+            Color swap = greenSide.DownRightAngle;
+            greenSide.DownRightAngle = blueSide.UpLeftAngle;
+            blueSide.UpLeftAngle = swap;
+            swap = orangeSide.DownRightAngle;
+            orangeSide.DownRightAngle = redSide.DownRightAngle;
+            redSide.DownRightAngle = swap;
+            swap = greenSide.DownLeftAngle;
+            greenSide.DownLeftAngle = blueSide.UpRightAngle;
+            blueSide.UpRightAngle = swap;
+            swap = orangeSide.DownLeftAngle;
+            orangeSide.DownLeftAngle = redSide.DownLeftAngle;
+            redSide.DownLeftAngle = swap;
+            swap = greenSide.DownEdge;
+            greenSide.DownEdge = blueSide.UpEdge;
+            blueSide.UpEdge = swap;
+            swap = orangeSide.DownEdge;
+            orangeSide.DownEdge = redSide.DownEdge;
+            redSide.DownEdge = swap;
             return "D2";
         }
 
         public string F()
         {
             greenSide.ClockwiseTurn();
-            Color swap = yellowSide.downLeftAngle;
-            yellowSide.downLeftAngle = redSide.downRightAngle;
-            redSide.downRightAngle = whiteSide.upRightAngle;
-            whiteSide.upRightAngle = orangeSide.upLeftAngle;
-            orangeSide.upLeftAngle = swap;
-            swap = yellowSide.downRightAngle;
-            yellowSide.downRightAngle = redSide.upRightAngle;
-            redSide.upRightAngle = whiteSide.upLeftAngle;
-            whiteSide.upLeftAngle = orangeSide.downLeftAngle;
-            orangeSide.downLeftAngle = swap;
-            swap = yellowSide.downEdge;
-            yellowSide.downEdge = redSide.rightEdge;
-            redSide.rightEdge = whiteSide.upEdge;
-            whiteSide.upEdge = orangeSide.leftEdge;
-            orangeSide.leftEdge = swap;
+            Color swap = yellowSide.DownLeftAngle;
+            yellowSide.DownLeftAngle = redSide.DownRightAngle;
+            redSide.DownRightAngle = whiteSide.UpRightAngle;
+            whiteSide.UpRightAngle = orangeSide.UpLeftAngle;
+            orangeSide.UpLeftAngle = swap;
+            swap = yellowSide.DownRightAngle;
+            yellowSide.DownRightAngle = redSide.UpRightAngle;
+            redSide.UpRightAngle = whiteSide.UpLeftAngle;
+            whiteSide.UpLeftAngle = orangeSide.DownLeftAngle;
+            orangeSide.DownLeftAngle = swap;
+            swap = yellowSide.DownEdge;
+            yellowSide.DownEdge = redSide.RightEdge;
+            redSide.RightEdge = whiteSide.UpEdge;
+            whiteSide.UpEdge = orangeSide.LeftEdge;
+            orangeSide.LeftEdge = swap;
             return "F ";
         }
 
         public string FContr()
         {
             greenSide.ContrClockwiseTurn();
-            Color swap = yellowSide.downLeftAngle;
-            yellowSide.downLeftAngle = orangeSide.upLeftAngle;
-            orangeSide.upLeftAngle = whiteSide.upRightAngle;
-            whiteSide.upRightAngle = redSide.downRightAngle;
-            redSide.downRightAngle = swap;
-            swap = yellowSide.downRightAngle;
-            yellowSide.downRightAngle = orangeSide.downLeftAngle;
-            orangeSide.downLeftAngle = whiteSide.upLeftAngle;
-            whiteSide.upLeftAngle = redSide.upRightAngle;
-            redSide.upRightAngle = swap;
-            swap = yellowSide.downEdge;
-            yellowSide.downEdge = orangeSide.leftEdge;
-            orangeSide.leftEdge = whiteSide.upEdge;
-            whiteSide.upEdge = redSide.rightEdge;
-            redSide.rightEdge = swap;
+            Color swap = yellowSide.DownLeftAngle;
+            yellowSide.DownLeftAngle = orangeSide.UpLeftAngle;
+            orangeSide.UpLeftAngle = whiteSide.UpRightAngle;
+            whiteSide.UpRightAngle = redSide.DownRightAngle;
+            redSide.DownRightAngle = swap;
+            swap = yellowSide.DownRightAngle;
+            yellowSide.DownRightAngle = orangeSide.DownLeftAngle;
+            orangeSide.DownLeftAngle = whiteSide.UpLeftAngle;
+            whiteSide.UpLeftAngle = redSide.UpRightAngle;
+            redSide.UpRightAngle = swap;
+            swap = yellowSide.DownEdge;
+            yellowSide.DownEdge = orangeSide.LeftEdge;
+            orangeSide.LeftEdge = whiteSide.UpEdge;
+            whiteSide.UpEdge = redSide.RightEdge;
+            redSide.RightEdge = swap;
             return "F'";
         }
 
@@ -453,85 +460,72 @@ namespace RubiksCubeHasher
         public string B()
         {
             blueSide.ClockwiseTurn();
-            Color swap = yellowSide.upLeftAngle;
-            yellowSide.upLeftAngle = orangeSide.upRightAngle;
-            orangeSide.upRightAngle = whiteSide.downRightAngle;
-            whiteSide.downRightAngle = redSide.downLeftAngle;
-            redSide.downLeftAngle = swap;
-            swap = yellowSide.upRightAngle;
-            yellowSide.upRightAngle = orangeSide.downRightAngle;
-            orangeSide.downRightAngle = whiteSide.downLeftAngle;
-            whiteSide.downLeftAngle = redSide.upLeftAngle;
-            redSide.upLeftAngle = swap;
-            swap = yellowSide.upEdge;
-            yellowSide.upEdge = orangeSide.rightEdge;
-            orangeSide.rightEdge = whiteSide.downEdge;
-            whiteSide.downEdge = redSide.leftEdge;
-            redSide.leftEdge = swap;
+            Color swap = yellowSide.UpLeftAngle;
+            yellowSide.UpLeftAngle = orangeSide.UpRightAngle;
+            orangeSide.UpRightAngle = whiteSide.DownRightAngle;
+            whiteSide.DownRightAngle = redSide.DownLeftAngle;
+            redSide.DownLeftAngle = swap;
+            swap = yellowSide.UpRightAngle;
+            yellowSide.UpRightAngle = orangeSide.DownRightAngle;
+            orangeSide.DownRightAngle = whiteSide.DownLeftAngle;
+            whiteSide.DownLeftAngle = redSide.UpLeftAngle;
+            redSide.UpLeftAngle = swap;
+            swap = yellowSide.UpEdge;
+            yellowSide.UpEdge = orangeSide.RightEdge;
+            orangeSide.RightEdge = whiteSide.DownEdge;
+            whiteSide.DownEdge = redSide.LeftEdge;
+            redSide.LeftEdge = swap;
             return "B ";
         }
 
         public string BContr()
         {
             blueSide.ContrClockwiseTurn();
-            Color swap = yellowSide.upLeftAngle;
-            yellowSide.upLeftAngle = redSide.downLeftAngle;
-            redSide.downLeftAngle = whiteSide.downRightAngle;
-            whiteSide.downRightAngle = orangeSide.upRightAngle;
-            orangeSide.upRightAngle = swap;
-            swap = yellowSide.upRightAngle;
-            yellowSide.upRightAngle = redSide.upLeftAngle;
-            redSide.upLeftAngle = whiteSide.downLeftAngle;
-            whiteSide.downLeftAngle = orangeSide.downRightAngle;
-            orangeSide.downRightAngle = swap;
-            swap = yellowSide.upEdge;
-            yellowSide.upEdge = redSide.leftEdge;
-            redSide.leftEdge = whiteSide.downEdge;
-            whiteSide.downEdge = orangeSide.rightEdge;
-            orangeSide.rightEdge = swap;
+            Color swap = yellowSide.UpLeftAngle;
+            yellowSide.UpLeftAngle = redSide.DownLeftAngle;
+            redSide.DownLeftAngle = whiteSide.DownRightAngle;
+            whiteSide.DownRightAngle = orangeSide.UpRightAngle;
+            orangeSide.UpRightAngle = swap;
+            swap = yellowSide.UpRightAngle;
+            yellowSide.UpRightAngle = redSide.UpLeftAngle;
+            redSide.UpLeftAngle = whiteSide.DownLeftAngle;
+            whiteSide.DownLeftAngle = orangeSide.DownRightAngle;
+            orangeSide.DownRightAngle = swap;
+            swap = yellowSide.UpEdge;
+            yellowSide.UpEdge = redSide.LeftEdge;
+            redSide.LeftEdge = whiteSide.DownEdge;
+            whiteSide.DownEdge = orangeSide.RightEdge;
+            orangeSide.RightEdge = swap;
             return "B'";
         }
 
         public string BDouble()
         {
             blueSide.DoubleTurn();
-            Color swap = yellowSide.upLeftAngle;
-            yellowSide.upLeftAngle = whiteSide.downRightAngle;
-            whiteSide.downRightAngle = swap;
-            swap = orangeSide.upRightAngle;
-            orangeSide.upRightAngle = redSide.downLeftAngle;
-            redSide.downLeftAngle = swap;
-            swap = yellowSide.upRightAngle;
-            yellowSide.upRightAngle = whiteSide.downLeftAngle;
-            whiteSide.downLeftAngle = swap;
-            swap = orangeSide.downRightAngle;
-            orangeSide.downRightAngle = redSide.upLeftAngle;
-            redSide.upLeftAngle = swap;
-            swap = yellowSide.upEdge;
-            yellowSide.upEdge = whiteSide.downEdge;
-            whiteSide.downEdge = swap;
-            swap = orangeSide.rightEdge;
-            orangeSide.rightEdge = redSide.leftEdge;
-            redSide.leftEdge = swap;
+            Color swap = yellowSide.UpLeftAngle;
+            yellowSide.UpLeftAngle = whiteSide.DownRightAngle;
+            whiteSide.DownRightAngle = swap;
+            swap = orangeSide.UpRightAngle;
+            orangeSide.UpRightAngle = redSide.DownLeftAngle;
+            redSide.DownLeftAngle = swap;
+            swap = yellowSide.UpRightAngle;
+            yellowSide.UpRightAngle = whiteSide.DownLeftAngle;
+            whiteSide.DownLeftAngle = swap;
+            swap = orangeSide.DownRightAngle;
+            orangeSide.DownRightAngle = redSide.UpLeftAngle;
+            redSide.UpLeftAngle = swap;
+            swap = yellowSide.UpEdge;
+            yellowSide.UpEdge = whiteSide.DownEdge;
+            whiteSide.DownEdge = swap;
+            swap = orangeSide.RightEdge;
+            orangeSide.RightEdge = redSide.LeftEdge;
+            redSide.LeftEdge = swap;
             return "B2";
         }
 
         public override string ToString()
         {
-            string sCube = "";
-            string[] indexes = new string[] { "w", "y", "g", "b", "o", "r" };
-            void FillStrBySide(Side side)
-            {
-                sCube += indexes[(int)side.upLeftAngle] + indexes[(int)side.upEdge] + indexes[(int)side.upRightAngle] + indexes[(int)side.rightEdge] + indexes[(int)side.downRightAngle] + indexes[(int)side.downEdge] + indexes[(int)side.downLeftAngle] + indexes[(int)side.leftEdge];
-            }
-
-            FillStrBySide(yellowSide);
-            FillStrBySide(whiteSide);
-            FillStrBySide(greenSide);
-            FillStrBySide(blueSide);
-            FillStrBySide(orangeSide);
-            FillStrBySide(redSide);
-            return sCube;
+            return yellowSide.ToString() + whiteSide.ToString() + greenSide.ToString() + blueSide.ToString() + orangeSide.ToString() + redSide.ToString();
         }
     }
 
