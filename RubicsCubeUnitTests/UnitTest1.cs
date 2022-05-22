@@ -205,4 +205,14 @@ namespace RubicsCubeUnitTests
             Assert.AreEqual("B2", res);
         }
     }
+
+    [TestFixture]
+    class HasherTest
+    {
+        [Test]
+        public void turnListCountTest()
+        {
+            Assert.AreEqual(new Hasher("").turnsListCount, 256);
+        }
+    }
 }

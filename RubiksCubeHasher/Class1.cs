@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace RubiksCubeHasher
 {
@@ -112,6 +113,7 @@ namespace RubiksCubeHasher
             return indexes[(int)UpLeftAngle] + indexes[(int)UpEdge] + indexes[(int)UpRightAngle] + indexes[(int)RightEdge] + indexes[(int)DownRightAngle] + indexes[(int)DownEdge] + indexes[(int)DownLeftAngle] + indexes[(int)LeftEdge];
         }
     }
+
     public class Cube
     {
         /// <summary>
@@ -529,5 +531,42 @@ namespace RubiksCubeHasher
         }
     }
 
+    /// <summary>
+    /// класс для хэширования информации
+    /// </summary>
+    public class Hasher : IEquatable<string>
+    {
+        private string[][] turnsList = new string[][] { new string[] { "R ", "L " }, new string[] { "R ", "L'" }, new string[] { "R ", "L2" }, new string[] { "R ", "U " }, new string[] { "R ", "U'" }, new string[] { "R ", "U2" }, new string[] { "R ", "D " }, new string[] { "R ", "D'" }, new string[] { "R ", "D2" }, new string[] { "R ", "F " }, new string[] { "R ", "F'" }, new string[] { "R ", "F2" }, new string[] { "R ", "B " }, new string[] { "R ", "B'" }, new string[] { "R ", "B2" }, new string[] { "R'", "L " }, new string[] { "R'", "L'" }, new string[] { "R'", "L2" }, new string[] { "R'", "U " }, new string[] { "R'", "U'" }, new string[] { "R'", "U2" }, new string[] { "R'", "D " }, new string[] { "R'", "D'" }, new string[] { "R'", "D2" }, new string[] { "R'", "F " }, new string[] { "R'", "F'" }, new string[] { "R'", "F2" }, new string[] { "R'", "B " }, new string[] { "R'", "B'" }, new string[] { "R'", "B2" }, new string[] { "R2", "L " }, new string[] { "R2", "L'" }, new string[] { "R2", "L2" }, new string[] { "R2", "U " }, new string[] { "R2", "U'" }, new string[] { "R2", "U2" }, new string[] { "R2", "D " }, new string[] { "R2", "D'" }, new string[] { "R2", "D2" }, new string[] { "R2", "F " }, new string[] { "R2", "F'" }, new string[] { "R2", "F2" }, new string[] { "R2", "B " }, new string[] { "R2", "B'" }, new string[] { "R2", "B2" }, new string[] { "L ", "U " }, new string[] { "L ", "U'" }, new string[] { "L ", "U2" }, new string[] { "L ", "D " }, new string[] { "L ", "D'" }, new string[] { "L ", "D2" }, new string[] { "L ", "F " }, new string[] { "L ", "F'" }, new string[] { "L ", "F2" }, new string[] { "L ", "B " }, new string[] { "L ", "B'" }, new string[] { "L ", "B2" }, new string[] { "L'", "U " }, new string[] { "L'", "U'" }, new string[] { "L'", "U2" }, new string[] { "L'", "D " }, new string[] { "L'", "D'" }, new string[] { "L'", "D2" }, new string[] { "L'", "F " }, new string[] { "L'", "F'" }, new string[] { "L'", "F2" }, new string[] { "L'", "B " }, new string[] { "L'", "B'" }, new string[] { "L'", "B2" }, new string[] { "L2", "U " }, new string[] { "L2", "U'" }, new string[] { "L2", "U2" }, new string[] { "L2", "D " }, new string[] { "L2", "D'" }, new string[] { "L2", "D2" }, new string[] { "L2", "F " }, new string[] { "L2", "F'" }, new string[] { "L2", "F2" }, new string[] { "L2", "B " }, new string[] { "L2", "B'" }, new string[] { "L2", "B2" }, new string[] { "U ", "R " }, new string[] { "U ", "R'" }, new string[] { "U ", "R2" }, new string[] { "U ", "L " }, new string[] { "U ", "L'" }, new string[] { "U ", "L2" }, new string[] { "U ", "D " }, new string[] { "U ", "D'" }, new string[] { "U ", "D2" }, new string[] { "U ", "F " }, new string[] { "U ", "F'" }, new string[] { "U ", "F2" }, new string[] { "U ", "B " }, new string[] { "U ", "B'" }, new string[] { "U ", "B2" }, new string[] { "U'", "R " }, new string[] { "U'", "R'" }, new string[] { "U'", "R2" }, new string[] { "U'", "L " }, new string[] { "U'", "L'" }, new string[] { "U'", "L2" }, new string[] { "U'", "D " }, new string[] { "U'", "D'" }, new string[] { "U'", "D2" }, new string[] { "U'", "F " }, new string[] { "U'", "F'" }, new string[] { "U'", "F2" }, new string[] { "U'", "B " }, new string[] { "U'", "B'" }, new string[] { "U'", "B2" }, new string[] { "U2", "R " }, new string[] { "U2", "R'" }, new string[] { "U2", "R2" }, new string[] { "U2", "L " }, new string[] { "U2", "L'" }, new string[] { "U2", "L2" }, new string[] { "U2", "D " }, new string[] { "U2", "D'" }, new string[] { "U2", "D2" }, new string[] { "U2", "F " }, new string[] { "U2", "F'" }, new string[] { "U2", "F2" }, new string[] { "U2", "B " }, new string[] { "U2", "B'" }, new string[] { "U2", "B2" }, new string[] { "D ", "R " }, new string[] { "D ", "R'" }, new string[] { "D ", "R2" }, new string[] { "D ", "L " }, new string[] { "D ", "L'" }, new string[] { "D ", "L2" }, new string[] { "D ", "F " }, new string[] { "D ", "F'" }, new string[] { "D ", "F2" }, new string[] { "D ", "B " }, new string[] { "D ", "B'" }, new string[] { "D ", "B2" }, new string[] { "D'", "R " }, new string[] { "D'", "R'" }, new string[] { "D'", "R2" }, new string[] { "D'", "L " }, new string[] { "D'", "L'" }, new string[] { "D'", "L2" }, new string[] { "D'", "F " }, new string[] { "D'", "F'" }, new string[] { "D'", "F2" }, new string[] { "D'", "B " }, new string[] { "D'", "B'" }, new string[] { "D'", "B2" }, new string[] { "D2", "R " }, new string[] { "D2", "R'" }, new string[] { "D2", "R2" }, new string[] { "D2", "L " }, new string[] { "D2", "L'" }, new string[] { "D2", "L2" }, new string[] { "D2", "F " }, new string[] { "D2", "F'" }, new string[] { "D2", "F2" }, new string[] { "D2", "B " }, new string[] { "D2", "B'" }, new string[] { "D2", "B2" }, new string[] { "F ", "R " }, new string[] { "F ", "R'" }, new string[] { "F ", "R2" }, new string[] { "F ", "L " }, new string[] { "F ", "L'" }, new string[] { "F ", "L2" }, new string[] { "F ", "U " }, new string[] { "F ", "U'" }, new string[] { "F ", "U2" }, new string[] { "F ", "D " }, new string[] { "F ", "D'" }, new string[] { "F ", "D2" }, new string[] { "F ", "B " }, new string[] { "F ", "B'" }, new string[] { "F ", "B2" }, new string[] { "F'", "R " }, new string[] { "F'", "R'" }, new string[] { "F'", "R2" }, new string[] { "F'", "L " }, new string[] { "F'", "L'" }, new string[] { "F'", "L2" }, new string[] { "F'", "U " }, new string[] { "F'", "U'" }, new string[] { "F'", "U2" }, new string[] { "F'", "D " }, new string[] { "F'", "D'" }, new string[] { "F'", "D2" }, new string[] { "F'", "B " }, new string[] { "F'", "B'" }, new string[] { "F'", "B2" }, new string[] { "F2", "R " }, new string[] { "F2", "R'" }, new string[] { "F2", "R2" }, new string[] { "F2", "L " }, new string[] { "F2", "L'" }, new string[] { "F2", "L2" }, new string[] { "F2", "U " }, new string[] { "F2", "U'" }, new string[] { "F2", "U2" }, new string[] { "F2", "D " }, new string[] { "F2", "D'" }, new string[] { "F2", "D2" }, new string[] { "F2", "B " }, new string[] { "F2", "B'" }, new string[] { "F2", "B2" }, new string[] { "B ", "R " }, new string[] { "B ", "R'" }, new string[] { "B ", "R2" }, new string[] { "B ", "L " }, new string[] { "B ", "L'" }, new string[] { "B ", "L2" }, new string[] { "B ", "U " }, new string[] { "B ", "U'" }, new string[] { "B ", "U2" }, new string[] { "B ", "D " }, new string[] { "B ", "D'" }, new string[] { "B ", "D2" }, new string[] { "B'", "R " }, new string[] { "B'", "R'" }, new string[] { "B'", "R2" }, new string[] { "B'", "L " }, new string[] { "B'", "L'" }, new string[] { "B'", "L2" }, new string[] { "B'", "U " }, new string[] { "B'", "U'" }, new string[] { "B'", "U2" }, new string[] { "B'", "D " }, new string[] { "B'", "D'" }, new string[] { "B'", "D2" }, new string[] { "B2", "R " }, new string[] { "B2", "R'" }, new string[] { "B2", "R2" }, new string[] { "B2", "L " }, new string[] { "B2", "L'" }, new string[] { "B2", "L2" }, new string[] { "B2", "U " }, new string[] { "B2", "U'" }, new string[] { "B2", "U2" }, new string[] { "B2", "D " }, new string[] { "B2", "D'" }, new string[] { "B2", "D2" }, new string[] { "R " }, new string[] { "R'" }, new string[] { "R2" }, new string[] { "L " }, new string[] { "L'" }, new string[] { "L2" }, new string[] { "U " }, new string[] { "U'" }, new string[] { "U2" }, new string[] { "D " }, new string[] { "D'" }, new string[] { "D2" }, new string[] { "F " } };
+        public int turnsListCount { get { return turnsList.Length; } }
+        public string Hash { get; private set; }
+        /// <summary>
+        /// функция хэширования
+        /// </summary>
+        /// <param name="information">информация, которую надо захэшировать</param>
+        /// <param name="height">сложность, должна быть больше 1</param>
+        /// <returns></returns>
+        public Hasher(string information, int height = 10)
+        {
+            if(height < 2)
+            {
+                throw new InvalidOperationException("height должно быть больше 1, а у вас " + height);
+            }
 
+            Cube cube = new Cube();
+            List<string> turns = new List<string>();
+            foreach (var e in information)
+            {
+                string[] eNumber = turnsList[(int)e];
+                foreach(var e1 in eNumber)
+                {
+                    turns.Add(e1);
+                }
+            }
+        }
+
+        public bool Equals(string other)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }
