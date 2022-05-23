@@ -15,4 +15,3 @@ C:\Users\79120\source\repos\RubiksCubeHasher\RubiksCubeHasher\bin\Debug\net5.0\n
 C:\Users\79120\source\repos\RubiksCubeHasher\RubiksCubeHasher\bin\Debug\net5.0\nunit.engine.api.dll
 C:\Users\79120\source\repos\RubiksCubeHasher\RubiksCubeHasher\bin\Debug\net5.0\nunit.engine.core.dll
 C:\Users\79120\source\repos\RubiksCubeHasher\RubiksCubeHasher\bin\Debug\net5.0\testcentric.engine.metadata.dll
-C:\Users\79120\source\repos\RubiksCubeHasher\RubiksCubeHasher\obj\Debug\net5.0\RubiksCubeHasher.csproj.AssemblyReference.cache

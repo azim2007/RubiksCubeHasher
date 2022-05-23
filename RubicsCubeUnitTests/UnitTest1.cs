@@ -207,12 +207,72 @@ namespace RubicsCubeUnitTests
     }
 
     [TestFixture]
+    class ScrambleFunctoinTest
+    {
+        public void Test(string scramble, string cubeToString)
+        {
+            var scr = scramble.Split(" ");
+            Cube cube = new Cube();
+            cube.ScrambleCube(new System.Collections.Generic.List<string>(scr));
+            Assert.AreEqual(cube.ToString(), cubeToString);
+        }
+        [Test]
+        public void SixPifPafTest()
+        {
+            Cube cube = new Cube();
+            Cube cube1 = new Cube();
+            cube.ScrambleCube(new System.Collections.Generic.List<string> { "R ", "U ", "R'", "U'", "R ", "U ", "R'", "U'", "R ", "U ", "R'", "U'", "R ", "U ", "R'", "U'", "R ", "U ", "R'", "U'", "R ", "U ", "R'", "U'" });
+            Assert.AreEqual(cube1.ToString(), cube.ToString());
+        }
+
+        [Test]
+        public void LambdaTest()
+        {
+            Cube cube = new Cube();
+            cube.ScrambleCube(new System.Collections.Generic.List<string> { "R ", "U ", "R'", "F'", "R ", "U ", "R'", "U'", "R'", "F ", "R2", "U'", "R'", "U'" });
+            Assert.AreEqual(cube.ToString(), "yyyyyyyywwwwwwwwgoogggggbbbbobbbbggooooorrrrrrrr");
+        }
+
+        [Test]
+        public void KopioTest()
+        {
+            Cube cube = new Cube();
+            cube.ScrambleCube(new System.Collections.Generic.List<string> { "F ", "R ", "U'", "R'", "U'", "R ", "U ", "R'", "F'", "R ", "U ", "R'", "U'", "R'", "F ", "R ", "F'" });
+            Assert.AreEqual(cube.ToString(), "yyyyyyyywwwwwwwwggbgggggbbbbbrgbroooooooobrrrrrr");
+        }
+
+        [Test]
+        public void ScramblesTest()
+        {
+            Test("R D2 B D R B2 R D2 R B2 U B2 U F2 L2 D B2 U D2", "obywywborygyyggbwrrgwgbgowbroybwgogbrrrryyoowowb");
+            Test("F2 L2 U2 F2 L2 D F2 U' B2 U2 L2 R B R D' U L D2 U2 F' U", "ggwyrrbryobbbryrwygoywobowwggwryyboororywgowbbgg");
+        }
+    }
+
+    [TestFixture]
     class HasherTest
     {
         [Test]
         public void turnListCountTest()
         {
             Assert.AreEqual(new Hasher("").turnsListCount, 256);
+        }
+
+        [Test]
+        public void HasherEqualsFunctionTest()
+        {
+            Hasher hasher = new Hasher("Hello world!");
+            Assert.AreEqual(hasher.Equals("Hello world!"), true);
+            Assert.AreEqual(hasher.Equals("hello world!"), false);
+            Assert.AreEqual(hasher.Equals("hello-world!"), false);
+            hasher = new Hasher("Hello world!", 42);
+            Assert.AreEqual(hasher.Equals("Hello world!"), true);
+            Assert.AreEqual(hasher.Equals("hello world!"), false);
+            Assert.AreEqual(hasher.Equals("hello-world!"), false);
+            hasher = new Hasher("Hello, my name is Azim", 12);
+            Assert.AreEqual(hasher.Equals("Hello, my name is Azim"), true);
+            Assert.AreEqual(hasher.Equals("hello Azim!"), false);
+            Assert.AreEqual(hasher.Equals("hello-world!"), false);
         }
     }
 }
