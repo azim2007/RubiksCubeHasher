@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using RubiksCubeHasher;
 
 namespace test
@@ -42,12 +43,39 @@ namespace test
             }
         }
 
+        class MyInt
+        {
+            public int Value { 
+                get 
+                { 
+                    return Value; 
+                } 
+                set
+                {
+                    if(value > 255)
+                    {
+                        Value = 0;
+                    }
+                    else if(value < 0)
+                    {
+                        Value = 0;
+                    }
+                    else
+                    {
+                        Value = value;
+                    }
+                } 
+            }
+        }
+
         static void Main()
         {
-            Hasher hasher = new Hasher("Hello, my name is Azim, i am 15 and I hate my life", 20);
-            Console.WriteLine(hasher.Hash);
-            Console.WriteLine(hasher.Equals("Hello, my name is Azim, i am 15 and I hate my life"));
-            Console.WriteLine(hasher.Equals("hello, my name is Azim, i am 15 and I hate my life"));
+            Hasher hasher = new Hasher("Hello, my name is Azim, i am 15 and I hate my life");
+            List<char> word = new List<char>();
+            MyInt a = new MyInt();
+            a.Value = 0;
+            a.Value = a.Value - 1;
+            Console.WriteLine(a);
         }
     }
 }
