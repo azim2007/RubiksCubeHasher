@@ -1,13 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "pFXnn6ffXEqnnglQ4I1MvdnmhiKb5qLLpU/SIUodroSJUle1bJXMCXcVSeYcGnu5nW84AZOOd0FZU4+x9kabcA==",
+  "dgSpecHash": "MORxEcBRaKoUMiOvnN5f6JCufXa04cTYZTt2pZTVnKiB/1de+dEjc6wxGyYBJbLbI3Stx4CZKYE5yNw1KNhUUw==",
   "success": true,
   "projectFilePath": "C:\\Users\\79120\\source\\repos\\RubiksCubeHasher\\RubiksCubeHasher\\RubiksCubeHasher.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\79120\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\79120\\.nuget\\packages\\netstandard.library\\2.0.0\\netstandard.library.2.0.0.nupkg.sha512",
     "C:\\Users\\79120\\.nuget\\packages\\nunit\\3.13.3\\nunit.3.13.3.nupkg.sha512",
-    "C:\\Users\\79120\\.nuget\\packages\\nunit3testadapter\\4.2.1\\nunit3testadapter.4.2.1.nupkg.sha512"
+    "C:\\Users\\79120\\.nuget\\packages\\nunit3testadapter\\4.2.1\\nunit3testadapter.4.2.1.nupkg.sha512",
+    "C:\\Users\\79120\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\79120\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\79120\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512"
   ],
   "logs": []
 }

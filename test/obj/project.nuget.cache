@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "6KudxMW3AtkvXL361LFxHaZYjk1BLlRvBl6eZlQeFRpCOBJfCDWGRJj4IhVl3S8hf+l/2Y5av0B2cK0zbMbh3Q==",
+  "dgSpecHash": "Y21WcjOQwi6ah3yWo8EBnBx5f6kuaAFYGUEvqlVpbcPsxo8fb52EG1BSMln3AXKJHAuK6WVDfUu/2H8m9vGmRg==",
   "success": true,
   "projectFilePath": "C:\\Users\\79120\\source\\repos\\RubiksCubeHasher\\test\\test.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\79120\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.17\\microsoft.netcore.app.host.win-x64.5.0.17.nupkg.sha512",
+    "C:\\Users\\79120\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\79120\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\79120\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

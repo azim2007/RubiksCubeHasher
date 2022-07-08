@@ -10,7 +10,6 @@ C:\Users\79120\source\repos\RubiksCubeHasher\RubicsCubeUnitTests\bin\Debug\net5.
 C:\Users\79120\source\repos\RubiksCubeHasher\RubicsCubeUnitTests\bin\Debug\net5.0\RubicsCubeUnitTests.runtimeconfig.json
 C:\Users\79120\source\repos\RubiksCubeHasher\RubicsCubeUnitTests\bin\Debug\net5.0\RubicsCubeUnitTests.runtimeconfig.dev.json
 C:\Users\79120\source\repos\RubiksCubeHasher\RubicsCubeUnitTests\bin\Debug\net5.0\RubicsCubeUnitTests.dll
-C:\Users\79120\source\repos\RubiksCubeHasher\RubicsCubeUnitTests\bin\Debug\net5.0\ref\RubicsCubeUnitTests.dll
 C:\Users\79120\source\repos\RubiksCubeHasher\RubicsCubeUnitTests\bin\Debug\net5.0\RubicsCubeUnitTests.pdb
 C:\Users\79120\source\repos\RubiksCubeHasher\RubicsCubeUnitTests\bin\Debug\net5.0\Microsoft.VisualStudio.CodeCoverage.Shim.dll
 C:\Users\79120\source\repos\RubiksCubeHasher\RubicsCubeUnitTests\bin\Debug\net5.0\Microsoft.DotNet.InternalAbstractions.dll
@@ -101,3 +100,4 @@ C:\Users\79120\source\repos\RubiksCubeHasher\RubicsCubeUnitTests\obj\Debug\net5.
 C:\Users\79120\source\repos\RubiksCubeHasher\RubicsCubeUnitTests\obj\Debug\net5.0\ref\RubicsCubeUnitTests.dll
 C:\Users\79120\source\repos\RubiksCubeHasher\RubicsCubeUnitTests\obj\Debug\net5.0\RubicsCubeUnitTests.pdb
 C:\Users\79120\source\repos\RubiksCubeHasher\RubicsCubeUnitTests\obj\Debug\net5.0\RubicsCubeUnitTests.genruntimeconfig.cache
+C:\Users\79120\source\repos\RubiksCubeHasher\RubicsCubeUnitTests\obj\Debug\net5.0\refint\RubicsCubeUnitTests.dll

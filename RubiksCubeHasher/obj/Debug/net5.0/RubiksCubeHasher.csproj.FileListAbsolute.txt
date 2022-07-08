@@ -1,6 +1,5 @@
 C:\Users\79120\source\repos\RubiksCubeHasher\RubiksCubeHasher\bin\Debug\net5.0\RubiksCubeHasher.deps.json
 C:\Users\79120\source\repos\RubiksCubeHasher\RubiksCubeHasher\bin\Debug\net5.0\RubiksCubeHasher.dll
-C:\Users\79120\source\repos\RubiksCubeHasher\RubiksCubeHasher\bin\Debug\net5.0\ref\RubiksCubeHasher.dll
 C:\Users\79120\source\repos\RubiksCubeHasher\RubiksCubeHasher\bin\Debug\net5.0\RubiksCubeHasher.pdb
 C:\Users\79120\source\repos\RubiksCubeHasher\RubiksCubeHasher\obj\Debug\net5.0\RubiksCubeHasher.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\79120\source\repos\RubiksCubeHasher\RubiksCubeHasher\obj\Debug\net5.0\RubiksCubeHasher.AssemblyInfoInputs.cache
@@ -15,3 +14,5 @@ C:\Users\79120\source\repos\RubiksCubeHasher\RubiksCubeHasher\bin\Debug\net5.0\n
 C:\Users\79120\source\repos\RubiksCubeHasher\RubiksCubeHasher\bin\Debug\net5.0\nunit.engine.api.dll
 C:\Users\79120\source\repos\RubiksCubeHasher\RubiksCubeHasher\bin\Debug\net5.0\nunit.engine.core.dll
 C:\Users\79120\source\repos\RubiksCubeHasher\RubiksCubeHasher\bin\Debug\net5.0\testcentric.engine.metadata.dll
+C:\Users\79120\source\repos\RubiksCubeHasher\RubiksCubeHasher\obj\Debug\net5.0\RubiksCubeHasher.csproj.AssemblyReference.cache
+C:\Users\79120\source\repos\RubiksCubeHasher\RubiksCubeHasher\obj\Debug\net5.0\refint\RubiksCubeHasher.dll

@@ -3,7 +3,6 @@ C:\Users\79120\source\repos\RubiksCubeHasher\test\bin\Debug\net5.0\test.deps.jso
 C:\Users\79120\source\repos\RubiksCubeHasher\test\bin\Debug\net5.0\test.runtimeconfig.json
 C:\Users\79120\source\repos\RubiksCubeHasher\test\bin\Debug\net5.0\test.runtimeconfig.dev.json
 C:\Users\79120\source\repos\RubiksCubeHasher\test\bin\Debug\net5.0\test.dll
-C:\Users\79120\source\repos\RubiksCubeHasher\test\bin\Debug\net5.0\ref\test.dll
 C:\Users\79120\source\repos\RubiksCubeHasher\test\bin\Debug\net5.0\test.pdb
 C:\Users\79120\source\repos\RubiksCubeHasher\test\bin\Debug\net5.0\RubiksCubeHasher.dll
 C:\Users\79120\source\repos\RubiksCubeHasher\test\bin\Debug\net5.0\RubiksCubeHasher.pdb
@@ -17,3 +16,4 @@ C:\Users\79120\source\repos\RubiksCubeHasher\test\obj\Debug\net5.0\test.dll
 C:\Users\79120\source\repos\RubiksCubeHasher\test\obj\Debug\net5.0\ref\test.dll
 C:\Users\79120\source\repos\RubiksCubeHasher\test\obj\Debug\net5.0\test.pdb
 C:\Users\79120\source\repos\RubiksCubeHasher\test\obj\Debug\net5.0\test.genruntimeconfig.cache
+C:\Users\79120\source\repos\RubiksCubeHasher\test\obj\Debug\net5.0\refint\test.dll

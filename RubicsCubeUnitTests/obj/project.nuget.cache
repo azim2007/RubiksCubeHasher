@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "6RMTvDuw4PXHj+W8fM615Ees3bBc5tNitOdmtiv1xE9DUroaeMyFJC2famgwvERwn/R5NfhpyYZnSHzFQ2isUg==",
+  "dgSpecHash": "M2E+vcYajBr+aAEXedh1wMmdaH81F/Yu+81hokMxUEuGVppW5JxvI2p7BH6nTWhhbcjELoJFeFgUSgCemc3DNQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\79120\\source\\repos\\RubiksCubeHasher\\RubicsCubeUnitTests\\RubicsCubeUnitTests.csproj",
   "expectedPackageFiles": [
@@ -68,7 +68,10 @@
     "C:\\Users\\79120\\.nuget\\packages\\system.xml.xdocument\\4.0.11\\system.xml.xdocument.4.0.11.nupkg.sha512",
     "C:\\Users\\79120\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\79120\\.nuget\\packages\\system.xml.xpath\\4.3.0\\system.xml.xpath.4.3.0.nupkg.sha512",
-    "C:\\Users\\79120\\.nuget\\packages\\system.xml.xpath.xmldocument\\4.3.0\\system.xml.xpath.xmldocument.4.3.0.nupkg.sha512"
+    "C:\\Users\\79120\\.nuget\\packages\\system.xml.xpath.xmldocument\\4.3.0\\system.xml.xpath.xmldocument.4.3.0.nupkg.sha512",
+    "C:\\Users\\79120\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\79120\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\79120\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512"
   ],
   "logs": []
 }

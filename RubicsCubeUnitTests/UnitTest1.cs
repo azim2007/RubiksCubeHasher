@@ -1,4 +1,4 @@
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using RubiksCubeHasher;
 
 namespace RubicsCubeUnitTests
@@ -273,6 +273,23 @@ namespace RubicsCubeUnitTests
             Assert.AreEqual(hasher.Equals("Hello, my name is Azim"), true);
             Assert.AreEqual(hasher.Equals("hello Azim!"), false);
             Assert.AreEqual(hasher.Equals("hello-world!"), false);
+        }
+
+        [Test]
+        public void HasherEqualsUtf16FunctionTest()
+        {
+            Hasher hasher = new Hasher("рузкие букавы");
+            Assert.AreEqual(hasher.Equals("рузкие букавы"), true);
+            Assert.AreEqual(hasher.Equals("англизкие букавы"), false);
+            Assert.AreEqual(hasher.Equals("hehey1234"), false);
+            hasher = new Hasher("我叫伊拉。 我是学生。 我在大学学习外语", 42);
+            Assert.AreEqual(hasher.Equals("我叫伊拉。 我是学生。 我在大学学习外语"), true);
+            Assert.AreEqual(hasher.Equals("чо то на китаянском"), false);
+            Assert.AreEqual(hasher.Equals("ohhhh shit"), false);
+            hasher = new Hasher("😀😁😂🤣", 12);
+            Assert.AreEqual(hasher.Equals("😀😁😂🤣"), true);
+            Assert.AreEqual(hasher.Equals("опа.. смайлики!"), false);
+            Assert.AreEqual(hasher.Equals("ahahahahahah"), false);
         }
     }
 }
